@@ -2,13 +2,13 @@ import logo from "../../assets/hero.png";
 
 const Footer = () => {
   return (
-    <footer className="text-white py-6 bg-black w-auto flex flex-wrap justify-center">
-      <div className="flex flex-row justify-between mt-20 space-x-20 flex-wrap gap-8 w-full max-w-[1080px] px-4">
-        <div className="flex flex-row mr-20">
-          <img src={logo} alt="Your Logo" className="w-48 h-48 mb-4" />
+    <footer className="text-white py-6 bg-black w-full fiexd bottom-0 justify-between relative">
+      <div className="flex flex-row justify-between gap-8 w-full h-full max-w-[1080px] px-4 m-auto">
+        <div className="flex flex-row md:mr-20">
+          <img src={logo} alt="Your Logo" className="w-20 h-20 md:w-40 md:h-40 mb-4" />
         </div>
-        <div className="mt-10 text-xl">
-          <ul className="space-y-5 ml-20">
+        <div className="text-md md:text-xl">
+          <ul className="md:ml-20">
             <li>
               <a href="#" className="hover:underline">
                 Points

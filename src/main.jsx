@@ -1,14 +1,17 @@
-import "./index.css";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Points from "./components/Points/index.jsx";
-import NavBar from "./components/NavBar/index.jsx";
-import Swap from "./components/Swap/index.jsx";
-
-import Community from "./components/Community/index.jsx";
-import Footer from "./components/Footer/index.jsx";
+import App from "./App";
+import Points from "./components/Points";
+import NavBar from "./components/NavBar";
+import Swap from "./components/Swap";
+import Community from "./components/Community";
+import Footer from "./components/Footer";
+import SwapNav from "./components/SwapNav";
+import PointNav from "./components/PointNav";
+import CommunityNav from "./components/CommunityNav";
 
 const queryClient = new QueryClient();
 
@@ -26,10 +29,8 @@ const router = createBrowserRouter([
     path: "/point",
     element: (
       <>
-        <NavBar />
-        <div>
-          <Points />
-        </div>
+        <PointNav />
+        <Points />
         <Footer />
       </>
     ),
@@ -38,10 +39,8 @@ const router = createBrowserRouter([
     path: "/community",
     element: (
       <>
-        <NavBar />
-        <div>
-          <Community />
-        </div>
+        <CommunityNav />
+        <Community />
         <Footer />
       </>
     ),
@@ -50,10 +49,8 @@ const router = createBrowserRouter([
     path: "/swap",
     element: (
       <>
-        <NavBar />
-        <div>
-          <Swap />
-        </div>
+        <SwapNav />
+        <Swap />
         <Footer />
       </>
     ),

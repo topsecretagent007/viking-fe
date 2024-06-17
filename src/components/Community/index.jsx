@@ -4,25 +4,22 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="relative mt-20 border-b border-neutral-800 min-h-[500px]">
+    <div className=" flex flex-col my-10 items-center min-h-[calc(100vh-431px)]">
       <div className="text-center">
-        <span className="bg-neutral-900 text-white rounded-full h-8 text-medium font-medium px-2 py-1 uppercase">
+        <span data-aos="flip-up" className="bg-neutral-900 text-white rounded-full h-8 text-medium font-medium px-2 py-1 uppercase">
           Community
         </span>
-        <h2 className="relative top-20 mt-0 transform -translate-y-1/2 text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide text-white">
+        <div data-aos="flip-up" className=" relative w-full top-20 mt-0 transform -translate-y-1/2 text-2xl sm:text-4xl lg:text-7xl text-center tracking-wide text-white">
           <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-transparent bg-clip-text">
             VIKING MULTI-DEX
           </span>
-        </h2>
-        <h2 className="items-center mt-20 text-[16px] text-center text-white-100">
-          Do you want to be part of the Vikings? Join our Telegram,
-          <br />
-          Follow us on Twitter, Join our Discord channel,
-          <br /> and get involved in our community.
-        </h2>
+        </div>
+        <div data-aos="flip-up" className="items-center mt-20 text-[16px] text-center text-white-100 max-w-[420px] mx-auto px-3">
+          Do you want to be part of the Vikings? Join our Telegram, Follow us on Twitter, Join our Discord channel, and get involved in our community.
+        </div>
 
         {/* Social media icons */}
-        <div className="flex justify-center mt-10 space-x-20 opacity-70">
+        <div data-aos="zoom-out-down" className="flex justify-center mt-10 gap-10 opacity-70">
           <a
             target="_blank"
             href="https://t.me/viking_swap"

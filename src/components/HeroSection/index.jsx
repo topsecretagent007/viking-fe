@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import hero from "../../assets/header_logo2.png"; // Assuming this is the correct path
 
 const Card = ({ className, imgSrc, title, description }) => {
@@ -21,9 +22,11 @@ const Card = ({ className, imgSrc, title, description }) => {
 
 const Index = () => {
   return (
-    <div className="relative flex flex-col items-center lg:mt-10">
-      {/* <img src={logo} alt="logo" className="opacity-100 w-full h-[100%]" /> */}
-      <h1 className="relative top-1/2 mt-0 transform -translate-y-1/2 text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide text-white">
+    <div className="relative flex flex-col items-center lg:mt-20">
+      {/* <div className="w-full h-[300px]">
+        <img src="../src/assets/bg.gif" alt="logo" className="opacity-30 relative w-full  flex flex-col" />
+      </div> */}
+      <h1 data-aos="zoom-in" className="relative top-1/2 mt-0 transform -translate-y-1/2 text-3xl sm:text-6xl lg:text-7xl text-center tracking-wide text-white">
         <span className="bg-gradient-to-r from-orange-100 to-orange-100 text-transparent bg-clip-text">
           VIKING MULTI DEX
         </span>
@@ -32,18 +35,22 @@ const Index = () => {
           ON BITCOIN
         </span>
       </h1>
-      <h2 className="-mt-10 text-[16px] text-center text-white-100 max-w-4xl">
-        Explore a wide range of tokens and enjoy seamless trading on the <br />
-        Viking platform, offering access to all tokens <br />
-        available on Bitcoin DEXs.
+      <h2 data-aos="zoom-in-down" className="items-center text-[16px] md:text-lg text-center text-white-100 max-w-[580px] mx-auto px-3">
+        Explore a wide range of tokens and enjoy seamless trading on the Viking platform, offering access to all tokens available on Bitcoin DEXs.
       </h2>
 
-      <div className="flex justify-center my-10">
-        <a href="#" className="neon-button py-3 px-6 rounded-[40px]">
-          Launch App
-        </a>
+      <div data-aos="fade-up" data-aos-duration="3000" className="flex justify-center my-10">
+        <Link to="swap">
+          <a href="#" className="neon-button py-3 px-6 rounded-[40px]">
+            Launch App
+          </a>
+        </Link>
       </div>
-      <div className="flex flex-wrap justify-center mt-10 gap-8 w-full px-4">
+      <div
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        className="flex flex-wrap justify-center mt-10 gap-8 w-full px-4">
         <Card
           className="rounded-lg w-full border-2 border-opacity-10 border-orange-200 mx-2 my-4"
           imgSrc={hero}
@@ -63,6 +70,7 @@ const Index = () => {
           description="Step into the new era of decentralized exchanges with VIKING DEX, where you can elevate your trading experience to new heights."
         />
         <Card
+          data-aos="flip-left"
           className="rounded-lg w-full border-2 border-opacity-10 border-orange-200 mx-2 my-4"
           imgSrc={hero}
           title="YOUR TRADES POWER YOUR EARNINGS: VIKING DEX WITH VIKI REWARDS"

@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  font-family: "inter" !important;
+  font-family: "monospace" !important;
   color-scheme: dark;
   background-image: url(./assets/sun-rays.png);
-  background-repeat: no-repeat;
+  opacity: 0.9;
+  background-size: cover;
+  background-position: center;
 }
 
 @tailwind base;
@@ -13,6 +15,21 @@
 
 .neon-button {
   @apply relative inline-block;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #181818;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #f89728;
+  border-radius: 10px;
+  border: 1px none #353434;
 }
 
 .neon-button::before,
@@ -43,4 +60,9 @@
   background: rgba(243, 156, 18, 1);
   color: white;
   border-color: transparent;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('./fonts/fonnts.com-4556/fonts/fonnts.com-Aeonik-Bold.ttf') format('ttf'),
 }
