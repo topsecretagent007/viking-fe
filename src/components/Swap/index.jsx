@@ -41,15 +41,14 @@ const VikingTokenPurchase = () => {
     setStxAmount(0);
     setSwapAmount(0);
     setSwapBalance(0);
-  }
-
+  };
 
   return (
     <div className="flex flex-col items-center relative overflow-hidden min-h-[calc(100vh-351px)]">
-      <div data-aos="flip-right" className="flex justify-center w-full text-lg md:text-2xl text-center font-bold mb-4 z-20  md:p-4 py-10 p-2">
+      <div className="flex justify-center w-full text-lg md:text-2xl text-center font-bold mb-4 z-20  md:p-4 py-10 p-2">
         Buy Viking Tokens with STX Tokens
       </div>
-      <div data-aos="flip-down" className="w-full h-full flex flex-col justify-center items-center gap-3 z-20 mb-10">
+      <div className="w-full h-full flex flex-col justify-center items-center gap-3 z-20 mb-10">
         <div className="max-w-[430px] w-[90%] h-full px-4 py-5 bg-[#0d0805] border-[1px] rounded-lg border-[#f5f7fa08]">
           <div className="flex flex-row justify-between items-center">
             <label
@@ -154,15 +153,13 @@ const VikingTokenPurchase = () => {
           </div>
         </div>
       </div>
-      {
-        vikingPoints !== null && (
-          <p className="mt-4 text-lg">
-            You have purchased Viking tokens worth {stxAmount} STX and earned{" "}
-            {vikingPoints} Viking points.
-          </p>
-        )
-      }
-    </div >
+      {vikingPoints !== null && (
+        <p className="mt-4 text-lg">
+          You have purchased Viking tokens worth {stxAmount} STX and earned{" "}
+          {vikingPoints} Viking points.
+        </p>
+      )}
+    </div>
   );
 };
 

@@ -22,33 +22,33 @@ const LeaderBoard = () => {
   ];
 
   const clickDiscription = (e) => {
-    if (discriptionId == e) {
-      setDiscriptionId(0)
+    if (discriptionId === e) {
+      setDiscriptionId(0);
     } else {
-      setDiscriptionId(e)
+      setDiscriptionId(e);
     }
-  }
+  };
 
   return (
     <div className="container mx-auto h-full min-h-[calc(100vh-200px)] p-4">
-      <div
-        ata-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"
-        className="text-center mb-20">
-        <h2 className="text-[40px] sm:text-6xl lg:text-7xl text-orange-100 mt-10">
+      <div className="text-center mb-10">
+        <h2 className="text-[32px] sm:text-4xl lg:text-5xl text-orange-100 mt-10">
           VIKING POINTS
         </h2>
       </div>
 
-      <div data-aos="zoom-out-up" className="mb-20">
-        <form onSubmit={handleSearch} className="flex justify-center gap-2">
+      <div className="mb-10">
+        <form
+          onSubmit={handleSearch}
+          className="flex flex-col sm:flex-row justify-center gap-2"
+        >
           <input
             type="text"
             name="address"
             value={walletAddress}
             onChange={(e) => setWalletAddress(e.target.value)}
             placeholder="Enter STX wallet address"
-            className="border border-gray-300 rounded-[40px] px-4 py-2 w-80"
+            className="border border-gray-300 rounded-[40px] px-4 py-2 w-full sm:w-80"
           />
           <button
             type="submit"
@@ -59,43 +59,59 @@ const LeaderBoard = () => {
         </form>
       </div>
 
-      <div data-aos="zoom-out-up" className="w-full object-cover overflow-clip">
-        <table className="w-full border border-gray-300">
-          <thead className="w-full bg-transparent text-white">
-            <tr className="w-full">
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-transparent border border-gray-300">
+          <thead className="bg-transparent text-white">
+            <tr>
               <th className="py-2 px-4 border-b">Rank</th>
               <th className="py-2 px-4 border-b">Wallet Address</th>
               <th className="py-2 px-4 border-b">Points</th>
             </tr>
           </thead>
-          <tbody className="w-full text-center text-white">
+          <tbody className="text-center text-white">
             {data
               ?.filter((item) => {
                 return debouncedAddress.toLowerCase() === ""
                   ? item
                   : item.wallet
-                    .toLowerCase()
-                    .includes(debouncedAddress.toLowerCase());
+                      .toLowerCase()
+                      .includes(debouncedAddress.toLowerCase());
               })
               .map((item, index) => (
-                <tr key={index} className="border-t w-full">
-                  <td className="py-2 px-4 ">{index + 1}</td>
-                  <td className="py-2 px-4 ">{item.wallet}</td>
-                  <td className="py-2 px-4 ">{calculatePoint(item.balance)}</td>
+                <tr key={index} className="border-t">
+                  <td className="py-2 px-4">{index + 1}</td>
+                  <td className="py-2 px-4 break-all">{item.wallet}</td>
+                  <td className="py-2 px-4">{calculatePoint(item.balance)}</td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
 
-      <div data-aos="zoom-in-left" className="w-full h-full flex flex-col lg:flex-row gap-8 items-start justify-center my-10">
+      <div className="w-full h-full flex flex-col gap-8 items-start justify-center my-10">
         {Discription.map((item, index) => (
-          <div className="w-full h-full text-white flex flex-col gap-5 p-3 border-b-[3px] border-b-[#e5effd08] cursor-pointer">
-            <div onClick={() => clickDiscription(item.id)} className="w-full h-full flex flex-row justify-between items-center font-bold text-lg">
+          <div
+            key={index}
+            className="w-full h-full text-white flex flex-col gap-5 p-3 border-b-[3px] border-b-[#e5effd08] cursor-pointer"
+          >
+            <div
+              onClick={() => clickDiscription(item.id)}
+              className="w-full h-full flex flex-row justify-between items-center font-bold text-lg"
+            >
               <div className=""> {item.text_1} </div>
-              {discriptionId == item.id ? <IoMdArrowDropdown /> : <IoMdArrowDropup />}
+              {discriptionId === item.id ? (
+                <IoMdArrowDropdown />
+              ) : (
+                <IoMdArrowDropup />
+              )}
             </div>
-            <div className={`${discriptionId == item.id ? "h-full opacity-100" : "h-0 opacity-0"} w-full  flex flex-row text-md font-semibold text-[#ffffff80] duration-300`}>
+            <div
+              className={`${
+                discriptionId === item.id
+                  ? "h-full opacity-100"
+                  : "h-0 opacity-0"
+              } w-full flex flex-row text-md font-semibold text-[#ffffff80] duration-300`}
+            >
               <div>{item.text_2}</div>
             </div>
           </div>

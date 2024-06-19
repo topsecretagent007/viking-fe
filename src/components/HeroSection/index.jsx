@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import hero from "../../assets/header_logo2.png"; // Assuming this is the correct path
+import bg from "../../assets/bg.gif";
+import CanvasLightning from "./CanvasLightning";
+
 
 const Card = ({ className, imgSrc, title, description }) => {
   return (
@@ -20,37 +23,73 @@ const Card = ({ className, imgSrc, title, description }) => {
   );
 };
 
+
 const Index = () => {
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="relative flex flex-col items-center lg:mt-20">
+    <div className="relative flex flex-col items-center heroSection">
+      <CanvasLightning className="w-full h-full absolute bg-red z-10 top-0 left-0 " width={width} height={height / 1.5}></CanvasLightning>
+
+      {/* <canvas id="canvas"></canvas> */}
+
       {/* <div className="w-full h-[300px]">
         <img src="../src/assets/bg.gif" alt="logo" className="opacity-30 relative w-full  flex flex-col" />
       </div> */}
-      <h1 data-aos="zoom-in" className="relative top-1/2 mt-0 transform -translate-y-1/2 text-3xl sm:text-6xl lg:text-7xl text-center tracking-wide text-white">
-        <span className="bg-gradient-to-r from-orange-100 to-orange-100 text-transparent bg-clip-text">
-          VIKING MULTI DEX
-        </span>
-        <br />
-        <span className="bg-gradient-to-r from-orange-500 to-orange-400 text-transparent bg-clip-text text-bg">
-          ON BITCOIN
-        </span>
-      </h1>
-      <h2 data-aos="zoom-in-down" className="items-center text-[16px] md:text-lg text-center text-white-100 max-w-[580px] mx-auto px-3">
-        Explore a wide range of tokens and enjoy seamless trading on the Viking platform, offering access to all tokens available on Bitcoin DEXs.
-      </h2>
-
-      <div data-aos="fade-up" data-aos-duration="3000" className="flex justify-center my-10">
-        <Link to="swap">
-          <a href="#" className="neon-button py-3 px-6 rounded-[40px]">
-            Launch App
-          </a>
-        </Link>
+      <div className="flex flex-col w-full min-h-[calc(100vh-400px)] absolute top-10 z-20 justify-center">
+        <h1
+          data-aos="zoom-in"
+          className="relative mt-0 transform -translate-y-1/2 text-3xl sm:text-6xl lg:text-7xl text-center tracking-wide text-white"
+        >
+          <span className="bg-gradient-to-r from-orange-100 to-orange-100 text-transparent bg-clip-text">
+            VIKING MULTI DEX
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-orange-500 to-orange-400 text-transparent bg-clip-text text-bg">
+            ON BITCOIN
+          </span>
+        </h1>
+        <h2
+          data-aos="zoom-in-down"
+          className="items-center text-[16px] md:text-lg text-center text-white-100 max-w-[580px] mx-auto px-3"
+        >
+          Explore a wide range of tokens and enjoy seamless trading on the Viking
+          platform, offering access to all tokens available on Bitcoin DEXs.
+        </h2>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className="flex justify-center my-10"
+        >
+          <Link to="swap">
+            <a href="#" className="neon-button py-3 px-6 rounded-[40px]">
+              Launch App
+            </a>
+          </Link>
+        </div>
       </div>
+
       <div
         data-aos="fade-right"
         data-aos-offset="300"
         data-aos-easing="ease-in-sine"
-        className="flex flex-wrap justify-center mt-10 gap-8 w-full px-4">
+        className="flex flex-wrap justify-center mt-10 gap-8 w-full px-4"
+      >
         <Card
           className="rounded-lg w-full border-2 border-opacity-10 border-orange-200 mx-2 my-4"
           imgSrc={hero}

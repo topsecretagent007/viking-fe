@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/hero.png";
 import { navItems } from "../../constants";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
 
-const index = () => {
+const NavBar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
+
   return (
     <div>
       <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80 ">
@@ -78,4 +78,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default NavBar;
